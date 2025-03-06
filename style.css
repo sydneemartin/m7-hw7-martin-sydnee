@@ -71,6 +71,8 @@ main > section, main > article {
 }
 
 main > section.hero {
+  position: sticky;
+  top: 0;
   height: 300px;
   background-image: url(https://picsum.photos/1920/1000);
   background-size: cover;
@@ -103,17 +105,17 @@ main article {
   padding: 48px 96px;
 }
 
-main p {
+main p{
   line-height: 1.75;
   margin-bottom: 48px;;
 }
 
-main > article img {
+article p:first-of-type::first-letter{
+  font-size: 400%;
+  font-weight: bold;
+  line-height: 80%;
+  width: 0.7em;
   float: left;
-  width: 300px;
-  height: auto;
-  margin-right: 24px;
-  margin-bottom: 6px;
 }
 
 footer {
@@ -138,18 +140,36 @@ span.tooltip:hover,
 span.tooltip:focus {
   text-decoration: underline;
 }
+
 /* show tooltip on hover/focus */
 span.tooltip:hover > span,
 span.tooltip:focus > span {
-  display: inline;
+  display: block;
 }
 
 /* styling for tooltip bubble */
-span.tooltip span {
-  display: none;
+span.tooltip span  {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 8px;
+    font-size: 14px;
 }
 
 /* styling for tooltip bubble arrow */
 span.tooltip span::after {
   content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid; 
+  border-color: #555 transparent transparent transparent;
 }
